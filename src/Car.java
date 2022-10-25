@@ -1,7 +1,7 @@
 public class Car extends Transport {
 
 
-    protected double engineVolume;
+    private double engineVolume;
     private String transmission;
     private String bodyType;
     private String registrationNumber;
