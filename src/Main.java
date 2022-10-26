@@ -1,82 +1,54 @@
 public class Main {
+
     public static void main(String[] args) {
 
-                Car lada = new Car("Lada",
-                        "Granta",
-                        2015,
-                        "Россия",
-                        "белый",
-                        150,
-                        1.7,
-                        "МКПП",
-                        "седан",
-                        "Р090ПР196",
-                        4);
-
-                System.out.println(lada);
-                lada.refill();
-
-
-                Train lastochka = new Train("Ласточка",
-                        "B-901",
-                        2011,
-                        "Россия",
-                        "",
-                        301,
-                        3500,
-                        "каждое четное число",
-                        "Белорусский вокзал",
-                        "Минск-Пассажирский", 11);
-
-
-                Train leningrad = new Train("Ленинград",
-                "D-125",
-                2019,
-                "Россия",
-                "",
-                270,
-                1700,
-                "каждое нечетное число",
-                "Ленинградский вокзал",
-                "Ленинград-Пассажирский",
-                8);
-
-        System.out.println(lastochka);
-        lastochka.refill();
-        System.out.println(leningrad);
-        leningrad.refill();
-
+        Car lada = new Car("Lada",
+                "Granta",
+                2.5);
+        System.out.println(lada);
+        lada.go();
+        System.out.println();
+        lada.stop();
+        System.out.println();
+        DriverB driverB = new DriverB("Иванов Иван Иванович", 5, lada);
+        System.out.println(driverB);
+        Car mersedes = new Car("Mersedes-Benz",
+                "AMG E 53 4MATIC",
+                2.5);
+        System.out.println(mersedes);
+        mersedes.go();
+        System.out.println();
+        mersedes.stop();
+        System.out.println();
+        Car bmv = new Car("BMV",
+                "M6",
+                5);
+        System.out.println(bmv);
+        bmv.go();
+        System.out.println();
+        bmv.stop();
+        System.out.println();
 
 
         Bus bus1 = new Bus("Mercedes-benz",
                 "Conecto",
-                2020,
-                "Германия",
-                "белый",
-                150);
+                3.0);
         Bus bus2 = new Bus("ГАЗ",
                 "Газель Next A64R42",
-                2019,
-                "Россия",
-                "желтый",
-                110);
+                3.0);
         Bus bus3 = new Bus("Hyundai",
                 "Bogdan A 201",
-                2018,
-                "Южная Корея",
-                "белый",
-                150);
-
+                3.0);
         System.out.println(bus1);
-        bus1.refill();
         System.out.println(bus2);
-        bus2.refill();
         System.out.println(bus3);
-        bus3.refill();
 
 
-
-
-
+        Truck gaz = new Truck("ГАЗ", "3307", 2);
+        Truck howo = new Truck("HOWO", "ZZ4257S3241V", 2);
+        Truck kamaz = new Truck("КАМАЗ", "65206", 2);
+        System.out.println(gaz);
+        System.out.println(howo);
+        System.out.println(kamaz);
     }
-        }
+}

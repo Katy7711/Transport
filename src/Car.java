@@ -1,86 +1,66 @@
-public class Car extends Transport {
+import java.util.concurrent.ThreadLocalRandom;
 
+public class Car extends Transport implements Competing {
 
-    private double engineVolume;
-    private String transmission;
-    private String bodyType;
-    private String registrationNumber;
-    private final int NumberOfSeats;
-
-
-    public Car(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed,
-               double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
-        if (engineVolume <= 0)
-            engineVolume = 1.5;
-        this.engineVolume = engineVolume;
-        if (transmission == null || transmission.isEmpty() || transmission.isBlank())
-            transmission = "МКПП";
-        this.transmission = transmission;
-        if (bodyType == null || bodyType.isEmpty() || bodyType.isBlank())
-            bodyType = "седан";
-        this.bodyType = bodyType;
-            if (registrationNumber == null || registrationNumber.isEmpty() || registrationNumber.isBlank())
-                registrationNumber = "X000XX000";
-        this.registrationNumber = registrationNumber;
-        NumberOfSeats = Math.max(numberOfSeats, 1);
-            }
+    public Car(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
+    }
 
     @Override
-    public void refill() {
-        System.out.println("Автомобили можно заправлять бензином, дизелем на заправке или заряжать на специальных электропарковках, если это электрокар");
-
+    public void pitStop() {
+        System.out.printf("Автомобиль %s %s совершил пит-стоп",
+                this.getModel(),
+                this.getBrand());
     }
 
-    public double getEngineVolume() {
-        return engineVolume;
+    @Override
+    public int BestLapTime() {
+        return ThreadLocalRandom.current().nextInt(1,1000);
     }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
+    @Override
+    public int MaxSpeed() {
+        return ThreadLocalRandom.current().nextInt(1,400);
     }
 
-    public String getTransmission() {
-        return transmission;
+    @Override
+    public void go() {
+        System.out.printf("Автомобиль %s %s начал движение",
+                this.getBrand(),
+                this.getModel());
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public String getBodyType() {
-        return bodyType;
-    }
-
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
-
-    public int getNumberOfSeats() {
-        return NumberOfSeats;
+    @Override
+    public void stop() {
+        System.out.printf("Автомобиль %s %s закончил движение",
+                this.getBrand(),
+                this.getModel());
     }
 
     @Override
     public String toString() {
         return "Car{" + "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
-                ", productionYear=" + getProductionYear() +
-                ", productionCountry='" + getProductionCountry() + '\'' +
-                ", color='" + getColor() + '\'' +
-                ", maxSpeed=" + getMaxSpeed() +
-                ", engineVolume=" + engineVolume +
-                ", transmission='" + transmission + '\'' +
-                ", bodyType='" + bodyType + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", NumberOfSeats=" + NumberOfSeats +
+                ", engineVolume=" + getEngineVolume() +
                 '}';
     }
 }
+
+
+//        public Car(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed,
+//               double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
+//        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+//        if (engineVolume <= 0)
+//            engineVolume = 1;
+//        this.engineVolume = engineVolume;
+//        if (transmission == null || transmission.isEmpty() || transmission.isBlank())
+//            transmission = "МКПП";
+//        this.transmission = transmission;
+//        if (bodyType == null || bodyType.isEmpty() || bodyType.isBlank())
+//            bodyType = "седан";
+//        this.bodyType = bodyType;
+//            if (registrationNumber == null || registrationNumber.isEmpty() || registrationNumber.isBlank())
+//                registrationNumber = "X000XX000";
+//        this.registrationNumber = registrationNumber;
+//        NumberOfSeats = Math.max(numberOfSeats, 1);
+//            }
