@@ -2,8 +2,48 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport implements Competing {
 
-    public Bus(String brand, String model, double engineVolume) {
+    private final CapacityType capacityType;
+
+    public Bus(String brand, String model, double engineVolume, CapacityType capacityType) {
         super(brand, model, engineVolume);
+        this.capacityType = capacityType;
+    }
+
+    public enum CapacityType {EXTRA_SMALL (0,10),
+        SMALL(10,25),
+        MEDIUM(40,50),
+        LARGE(60,80),
+        ESPECIALLY_LARGE(100,120);
+
+        private final double capacityFrom;
+        private final double capacityTo;
+
+        CapacityType(double capacityFrom, double capacityTo) {
+            this.capacityFrom = capacityFrom;
+            this.capacityTo = capacityTo;
+        }
+
+        public double getCapacityFrom() {
+            return capacityFrom;
+        }
+
+        public double getCapacityTo() {
+            return capacityTo;
+        }
+        public String toString() {
+            String capacity = capacityFrom > 0
+                    ? capacityFrom + " - " + capacityTo :
+            String.valueOf(capacityTo);
+            return "Вместимость:" + capacity + "мест";
+        }
+    };
+
+    public void printType () {
+        if (this.capacityType !=null) {
+            System.out.println(capacityType);
+        } else {
+            System.out.println("Данных недостаточно");
+        }
     }
 
     @Override

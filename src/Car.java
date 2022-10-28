@@ -2,8 +2,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing {
 
-    public Car(String brand, String model, double engineVolume) {
+    private final BodyTape bodyTape;
+
+    public Car(String brand, String model, double engineVolume, BodyTape bodyTape) {
         super(brand, model, engineVolume);
+        this.bodyTape = bodyTape;
+    }
+
+    public void printType () {
+        if (this.bodyTape !=null) {
+            System.out.println(bodyTape);
+        } else {
+            System.out.println("Данных недостаточно");
+        }
     }
 
     @Override
