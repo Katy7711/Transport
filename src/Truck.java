@@ -64,6 +64,13 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
+    public void passDiagnostics() {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            throw new DiagnosticsException ("Грузовик " + getBrand() + " " + getModel() + " не прошел диагностику");
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.printf("Автомобиль %s %s совершил пит-стоп",
                 this.getModel(),

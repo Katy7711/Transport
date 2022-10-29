@@ -18,6 +18,7 @@ public abstract class Transport {
 
     public abstract void go ();
     public abstract void stop ();
+    public abstract void passDiagnostics();
 
 //    private final int productionYear;
 //    private final String productionCountry;

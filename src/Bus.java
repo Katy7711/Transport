@@ -75,4 +75,10 @@ public class Bus extends Transport implements Competing {
                 this.getModel(),
                 this.getBrand());
     }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается");
+
+    }
 }

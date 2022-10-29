@@ -49,6 +49,13 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
+    public void passDiagnostics() {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            throw new DiagnosticsException ("Автомобиль " + getBrand() + " " + getModel() + " не прошел диагностику");
+        }
+    }
+
+    @Override
     public String toString() {
         return "Car{" + "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +

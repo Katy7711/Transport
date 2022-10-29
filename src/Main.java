@@ -12,6 +12,11 @@ public class Main {
         System.out.println();
         lada.printType();
         System.out.println();
+        try {
+            lada.passDiagnostics();
+        } catch (DiagnosticsException e){
+            System.out.println("Транспортное средство не прошло диагностику: " + e.getMessage());
+        }
         DriverB driverB = new DriverB("Иванов Иван Иванович", 5, lada);
         System.out.println(driverB);
         Car mersedes = new Car("Mersedes-Benz",
