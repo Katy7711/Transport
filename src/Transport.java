@@ -1,10 +1,19 @@
+import java.util.List;
+
 public abstract class Transport {
 
     private String brand;
     private String model;
     private double engineVolume;
+    private final Driver driver;
+    private final List <Mechanic> mechanics;
+    private final List <Sponsor> sponsors;
 
-    public Transport(String brand, String model, double engineVolume) {
+
+    public Transport(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanics, List<Sponsor> sponsors) {
+        this.driver = driver;
+        this.mechanics = mechanics;
+        this.sponsors = sponsors;
         if (brand == null || brand.isEmpty() || brand.isBlank())
             brand = "default";
         this.brand = brand;
@@ -19,6 +28,16 @@ public abstract class Transport {
     public abstract void go ();
     public abstract void stop ();
     public abstract void passDiagnostics();
+    public void printPersonInfo () {
+        System.out.println("Водитель: " + driver.getFullName());
+        for (Sponsor sponsor: sponsors) {
+            System.out.println(sponsor);
+            for (Mechanic mechanic: mechanics) {
+                System.out.println(mechanic);
+            }
+        }
+
+    }
 
 //    private final int productionYear;
 //    private final String productionCountry;
@@ -71,6 +90,17 @@ public abstract class Transport {
         this.engineVolume = engineVolume;
     }
 
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
     //    public int getProductionYear() {
 //        return productionYear;
 //    }
@@ -103,4 +133,6 @@ public abstract class Transport {
                 ", productionYear=" + getEngineVolume() +
                 '}';
     }
+
+
 }

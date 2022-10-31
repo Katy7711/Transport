@@ -1,12 +1,21 @@
+import com.sun.jdi.connect.Transport;
+
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Bus extends Transport implements Competing {
+public class Bus extends Transport implements Competing  {
 
     private final CapacityType capacityType;
 
-    public Bus(String brand, String model, double engineVolume, CapacityType capacityType) {
-        super(brand, model, engineVolume);
+    public Bus(String brand, String model, double engineVolume, CapacityType capacityType, DriverD driverD, List<Mechanic> mechanics, List<Sponsor> sponsors) {
+        super(brand, model, engineVolume, driverD, mechanics, sponsors);
         this.capacityType = capacityType;
+    }
+
+
+    @Override
+    public String name() {
+        return null;
     }
 
     public enum CapacityType {EXTRA_SMALL (0,10),

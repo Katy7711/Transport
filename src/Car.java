@@ -1,12 +1,15 @@
+import com.sun.jdi.connect.Transport;
+
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Car extends Transport implements Competing {
+public class Car extends Transport implements Competing  {
 
     private final BodyTape bodyTape;
 
-    public Car(String brand, String model, double engineVolume, BodyTape bodyTape) {
-        super(brand, model, engineVolume);
-        this.bodyTape = bodyTape;
+    public Car(String brand, String model, double engineVolume, Bus.CapacityType capacityType, DriverD driverD, List<Mechanic> mechanics, List<Sponsor> sponsors) {
+        super(brand, model, engineVolume, driverD, mechanics, sponsors);
+        this.capacityType = capacityType;
     }
 
     public void printType () {

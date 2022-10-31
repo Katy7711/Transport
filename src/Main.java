@@ -4,7 +4,7 @@ public class Main {
 
         Car lada = new Car("Lada",
                 "Granta",
-                2.5, BodyTape.SEDAN);
+                2.5, BodyTape.SEDAN, new DriverB("Иванов Иван", 10, lada));
         System.out.println(lada);
         lada.go();
         System.out.println();
@@ -14,14 +14,13 @@ public class Main {
         System.out.println();
         try {
             lada.passDiagnostics();
-        } catch (DiagnosticsException e){
+        } catch (DiagnosticsException e) {
             System.out.println("Транспортное средство не прошло диагностику: " + e.getMessage());
         }
-        DriverB driverB = new DriverB("Иванов Иван Иванович", 5, lada);
-        System.out.println(driverB);
+
         Car mersedes = new Car("Mersedes-Benz",
                 "AMG E 53 4MATIC",
-                2.5, BodyTape.SEDAN);
+                2.5, BodyTape.SEDAN, );
         System.out.println(mersedes);
         mersedes.go();
         System.out.println();
@@ -29,7 +28,7 @@ public class Main {
         System.out.println();
         Car bmv = new Car("BMV",
                 "M6",
-                5, BodyTape.HATCHBACK);
+                5, BodyTape.HATCHBACK, );
         System.out.println(bmv);
         bmv.go();
         System.out.println();
@@ -57,5 +56,12 @@ public class Main {
         System.out.println(gaz);
         System.out.println(howo);
         System.out.println(kamaz);
+
+        DriverB driverB = new DriverB("Иванов Иван Иванович", 5, lada);
+        DriverB ivanovIvan = new DriverB("Иванов Иван", 10, lada);
+        DriverD petrovSergey = new DriverD("Петров Сергей", 5, gaz);
+        DriverC smirnovIvan = new DriverC("Смирнов Иван", 10, bus3);
+        System.out.println(driverB);
+
     }
 }

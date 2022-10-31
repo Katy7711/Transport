@@ -1,9 +1,10 @@
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Truck extends Transport implements Competing {
 
-    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
-        super(brand, model, engineVolume);
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity, DriverC driverC, List<Mechanic>mechanics, List<Sponsor>sponsors) {
+        super(brand, model, engineVolume, driverC, mechanics, sponsors);
         this.loadCapacity = loadCapacity;
     }
 
