@@ -1,4 +1,3 @@
-import com.sun.jdi.connect.Transport;
 
 public abstract class Driver <T extends Transport> {
     private final String fullName;

@@ -1,6 +1,6 @@
 import com.sun.jdi.connect.Transport;
 
-public class Mechanic {
+public class Mechanic <T extends Transport> {
 
     private final String fullName;
     private final String company;

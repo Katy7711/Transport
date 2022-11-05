@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Set;
 
 public abstract class Transport {
 
@@ -6,11 +7,11 @@ public abstract class Transport {
     private String model;
     private double engineVolume;
     private final Driver driver;
-    private final List <Mechanic> mechanics;
-    private final List <Sponsor> sponsors;
+    private final Set<Mechanic> mechanics;
+    private final Set <Sponsor> sponsors;
 
 
-    public Transport(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanics, List<Sponsor> sponsors) {
+    public Transport(String brand, String model, double engineVolume, Driver driver, Set<Mechanic> mechanics, Set<Sponsor> sponsors) {
         this.driver = driver;
         this.mechanics = mechanics;
         this.sponsors = sponsors;
@@ -94,11 +95,11 @@ public abstract class Transport {
         return driver;
     }
 
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
 
-    public List<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
     //    public int getProductionYear() {
@@ -128,9 +129,12 @@ public abstract class Transport {
     @Override
     public String toString() {
         return "Transport{" +
-                "brand='" + "brand='" + getBrand() + '\'' +
-                ", model='" + getModel() + '\'' +
-                ", productionYear=" + getEngineVolume() +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", driver=" + driver +
+                ", mechanics=" + mechanics +
+                ", sponsors=" + sponsors +
                 '}';
     }
 

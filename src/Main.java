@@ -5,6 +5,7 @@ public class Main {
         Car lada = new Car("Lada",
                 "Granta",
                 2.5, BodyTape.SEDAN, new DriverB("Иванов Иван", 10, lada));
+// как тут правильно добавлять параметры, машину спонсора и механика?
         System.out.println(lada);
         lada.go();
         System.out.println();
@@ -59,8 +60,8 @@ public class Main {
 
         DriverB driverB = new DriverB("Иванов Иван Иванович", 5, lada);
         DriverB ivanovIvan = new DriverB("Иванов Иван", 10, lada);
-        DriverD petrovSergey = new DriverD("Петров Сергей", 5, gaz);
-        DriverC smirnovIvan = new DriverC("Смирнов Иван", 10, bus3);
+        DriverD petrovSergey = new DriverD("Петров Сергей", 5, bus1);
+        DriverC smirnovIvan = new DriverC("Смирнов Иван", 10, gaz);
         System.out.println(driverB);
 
     }

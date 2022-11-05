@@ -1,15 +1,14 @@
-import com.sun.jdi.connect.Transport;
-
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing  {
 
     private final BodyTape bodyTape;
 
-    public Car(String brand, String model, double engineVolume, Bus.CapacityType capacityType, DriverD driverD, List<Mechanic> mechanics, List<Sponsor> sponsors) {
-        super(brand, model, engineVolume, driverD, mechanics, sponsors);
-        this.capacityType = capacityType;
+    public Car(String brand, String model, double engineVolume, BodyTape bodyTape, DriverB driverB, Set<Mechanic> mechanics, Set<Sponsor> sponsors) {
+        super(brand, model, engineVolume, driverB, mechanics, sponsors);
+        this.bodyTape = bodyTape;
     }
 
     public void printType () {
@@ -60,9 +59,8 @@ public class Car extends Transport implements Competing  {
 
     @Override
     public String toString() {
-        return "Car{" + "brand='" + getBrand() + '\'' +
-                ", model='" + getModel() + '\'' +
-                ", engineVolume=" + getEngineVolume() +
+        return "Car{" +
+                "bodyTape=" + bodyTape +
                 '}';
     }
 }

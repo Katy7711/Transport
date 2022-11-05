@@ -1,14 +1,18 @@
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Truck extends Transport implements Competing {
 
-    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity, DriverC driverC, List<Mechanic>mechanics, List<Sponsor>sponsors) {
+
+    private final LoadCapacity loadCapacity;
+
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity, DriverC driverC, Set<Mechanic> mechanics, Set<Sponsor>sponsors) {
         super(brand, model, engineVolume, driverC, mechanics, sponsors);
         this.loadCapacity = loadCapacity;
     }
 
-    private final LoadCapacity loadCapacity;
+
 
     public enum LoadCapacity {N1 (0, 3.5),
         N2(3.5, 12),
